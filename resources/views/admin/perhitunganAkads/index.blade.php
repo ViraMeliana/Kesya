@@ -17,7 +17,7 @@
                 <div class="col">
                     <div class="card"><img class="card-img-top" src="{{asset('image/mosque_baner.jpg')}}" alt="">
                         <div class="card-body">
-                            <a href="{{route('admin.perhitungan-akads.calculate',['detail'=>'tabungan-mudharabah'])}}">
+                            <a href="{{route('admin.perhitungan-akads.showIndex',['detail'=>'tabungan-mudharabah'])}}">
                             <h5 class="card-title">Tabungan Mudharabah</h5></a>
                         </div>
                     </div>
@@ -25,7 +25,9 @@
                 <div class="col">
                     <div class="card"><img class="card-img-top" src="{{asset('image/mosque_baner.jpg')}}" alt="">
                         <div class="card-body">
+                            <a href="{{route('admin.perhitungan-akads.showIndex',['detail'=>'pembiayaan-mudharabah'])}}">
                             <h5 class="card-title">Pembiayaan Mudharabah</h5>
+                            </a>
                         </div>
                     </div>
                 </div>

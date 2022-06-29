@@ -61,11 +61,61 @@ class PerhitunganAkadController extends Controller
         return view('admin.perhitunganAkads.index');
     }
 
+    public function showIndex($detail)
+    {
+        abort_if(Gate::denies('perhitungan_akad_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        if ($detail == "tabungan-mudharabah") {
+            return view('admin.tabunganMudharabahs.index');
+        } else if ($detail == "pembiayaan-mudharabah") {
+            return view('admin.pembiayaanMudharabahs.index');
+        }
+        return true;
+    }
+
+    public function showCreate($detail)
+    {
+        abort_if(Gate::denies('perhitungan_akad_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        if ($detail == "tabungan-mudharabah") {
+            return view('admin.tabunganMudharabahs.create');
+        } else if ($detail == "pembiayaan-mudharabah") {
+            return view('admin.pembiayaanMudharabahs.create');
+        }
+        return true;
+    }
+
     public function create()
     {
         abort_if(Gate::denies('perhitungan_akad_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return view('admin.perhitunganAkads.create');
+    }
+
+    public function calculate(Request $request, $detail)
+    {
+        if ($detail == "tabungan-mudharabah" ) {
+            $nisbah_bank = ($request->nisbah_percent_bank) * ($request->pendapatan) / 100;
+            $nisbah_total_nasabah = ($request->nisbah_percent_nasabah) * ($request->pendapatan) / 100;
+            $nisbah_nasabah = (($request->avg_nasabah) / ($request->total)) * ($nisbah_total_nasabah);
+            $tabungan_awal = ($request->avg_nasabah) + ($nisbah_nasabah);
+
+            $result = array('nisbah_bank'=>$nisbah_bank, 'nisbah_total_nasabah'=>$nisbah_total_nasabah,
+                'nisbah_nasabah'=>$nisbah_nasabah, 'tabungan_awal'=>$tabungan_awal);
+            $json = json_encode(array_merge($request->except('_token'), $result));
+        } else if ($detail == "pembiayaan-mudharabah" ) {
+            $proyeksi_penerimaan_pertahun = ($request->proyeksi_penerimaan_perbulan) * 12;
+            $nisbah_pertahun = ($request->jangka_waktu) * ($request->rate) * ($request->kebutuhan_modal) / 100;
+            $nisbah_bank = ($nisbah_pertahun) / ($proyeksi_penerimaan_pertahun) * 100;
+            $nisbah_nasabah = 100 - ($nisbah_bank);
+            $laba_nasabah = ($request->penghasilan) * ($nisbah_nasabah) / 100;
+            $laba_bank = ($request->penghasilan) * ($nisbah_bank) / 100;
+
+            $result = array('proyeksi_penerimaan_pertahun'=>$proyeksi_penerimaan_pertahun, 'nisbah_pertahun'=>$nisbah_pertahun,
+                'nisbah_nasabah'=>round($nisbah_nasabah), 'nisbah_bank'=>round($nisbah_bank), 'laba_nasabah'=>round($laba_nasabah), 'laba_bank'=>round($laba_bank));
+            $json = json_encode(array_merge($request->except('_token'), $result));
+        }
+//        $perhitunganAkad = PerhitunganAkad::create(['collection'=>$json, 'property' => $detail, ]);
+        dd($json);
+        return redirect()->route('admin.perhitungan-akads.index');
     }
 
     public function store(StorePerhitunganAkadRequest $request)

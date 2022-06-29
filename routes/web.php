@@ -50,7 +50,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // Perhitungan Akad
     Route::delete('perhitungan-akads/destroy', 'PerhitunganAkadController@massDestroy')->name('perhitungan-akads.massDestroy');
-    Route::get('perhitungan-akads/{detail}', 'PerhitunganAkadController@calculate')->name('perhitungan-akads.calculate');
+    Route::get('perhitungan-akads/{detail}', 'PerhitunganAkadController@showIndex')->name('perhitungan-akads.showIndex');
+    Route::get('perhitungan-akads/{detail}/create', 'PerhitunganAkadController@showCreate')->name('perhitungan-akads.showCreate');
+    Route::post('perhitungan-akads/{detail}/calculate', 'PerhitunganAkadController@calculate')->name('perhitungan-akads.calculate');
+
     Route::resource('perhitungan-akads', 'PerhitunganAkadController');
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
