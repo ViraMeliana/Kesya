@@ -34,7 +34,9 @@
                 <div class="col">
                     <div class="card"><img class="card-img-top" src="{{asset('image/mosque_baner.jpg')}}" alt="">
                         <div class="card-body">
+                            <a href="{{route('admin.perhitungan-akads.showIndex',['detail'=>'musyarakah'])}}">
                             <h5 class="card-title">Musyarakah</h5>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -49,21 +51,27 @@
                 <div class="col">
                     <div class="card"><img class="card-img-top" src="{{asset('image/mosque_baner.jpg')}}" alt="">
                         <div class="card-body">
+                            <a href="{{route('admin.perhitungan-akads.showIndex',['detail'=>'murabahah'])}}">
                             <h5 class="card-title">Pembiayaan Murabahah</h5>
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card"><img class="card-img-top" src="{{asset('image/mosque_baner.jpg')}}" alt="">
                         <div class="card-body">
+                            <a href="{{route('admin.perhitungan-akads.showIndex',['detail'=>'salam'])}}">
                             <h5 class="card-title">Pembiayaan Salam</h5>
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card"><img class="card-img-top" src="{{asset('image/mosque_baner.jpg')}}" alt="">
                         <div class="card-body">
+                            <a href="{{route('admin.perhitungan-akads.showIndex',['detail'=>'istisna'])}}">
                             <h5 class="card-title">Pembiayaan Istisna</h5>
+                            </a>
                         </div>
                     </div>
                 </div>

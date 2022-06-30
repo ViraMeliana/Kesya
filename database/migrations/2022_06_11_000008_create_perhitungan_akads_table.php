@@ -10,9 +10,9 @@ class CreatePerhitunganAkadsTable extends Migration
     {
         Schema::create('perhitungan_akads', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('collection');
+            $table->longText('collection');
             $table->longText('property')->nullable();
-            $table->string('code')->nullable();
+            $table->longText('code')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

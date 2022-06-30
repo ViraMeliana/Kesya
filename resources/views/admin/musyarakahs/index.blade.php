@@ -1,14 +1,12 @@
 @extends('layouts.admin')
 @section('content')
-    @can('musyarakah_create')
-        <div style="margin-bottom: 10px;" class="row">
-            <div class="col-lg-12">
-                <a class="btn btn-success" href="{{ route('admin.musyarakahs.create') }}">
-                    {{ trans('global.add') }} {{ trans('cruds.musyarakah.title_singular') }}
-                </a>
-            </div>
+    <div style="margin-bottom: 10px;" class="row">
+        <div class="col-lg-12">
+            <a class="btn btn-success" href="{{ route('admin.perhitungan-akads.showCreate',['detail'=>'musyarakah']) }}">
+                {{ trans('global.add') }} {{ trans('cruds.musyarakah.title_singular') }}
+            </a>
         </div>
-    @endcan
+    </div>
     <div class="card">
         <div class="card-header">
             {{ trans('cruds.musyarakah.title_singular') }} {{ trans('global.list') }}
@@ -79,94 +77,84 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($musyarakahs as $key => $musyarakah)
-                        <tr data-entry-id="{{ $musyarakah->id }}">
+                    @if($result != null)
+                        @foreach($result as $key => $musyarakah)
+                        <tr data-entry-id="{{ $musyarakah['id'] }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ $musyarakah->id ?? '' }}
+                                {{ $musyarakah['id'] ?? '' }}
                             </td>
                             <td>
-                                {{ $musyarakah->net_sales_tahun ?? '' }}
+                                {{ number_format($musyarakah['collection']->net_sales_tahun) ?? '' }}
                             </td>
                             <td>
-                                {{ $musyarakah->hpp_pertahun ?? '' }}
+                                {{ number_format($musyarakah['collection']->hpp_pertahun )?? '' }}
                             </td>
                             <td>
-                                {{ $musyarakah->last_dr_daily ?? '' }}
+                                {{ $musyarakah['collection']->last_dr_daily ?? '' }}
                             </td>
                             <td>
-                                {{ $musyarakah->last_di_daily ?? '' }}
+                                {{ $musyarakah['collection']->last_di_daily ?? '' }}
                             </td>
                             <td>
-                                {{ $musyarakah->last_dp_daily ?? '' }}
+                                {{ $musyarakah['collection']->last_dp_daily ?? '' }}
                             </td>
                             <td>
-                                {{ $musyarakah->nwc ?? '' }}
+                                {{ number_format($musyarakah['collection']->nwc) ?? '' }}
                             </td>
                             <td>
-                                {{ $musyarakah->asumsi_kenaikan_penjualan ?? '' }}
+                                {{ $musyarakah['collection']->asumsi_kenaikan_penjualan ?? '' }}%
                             </td>
                             <td>
-                                {{ $musyarakah->asumsi_hpp ?? '' }}
+                                {{ $musyarakah['collection']->asumsi_hpp ?? '' }}%
                             </td>
                             <td>
-                                {{ $musyarakah->next_dr_daily ?? '' }}
+                                {{ $musyarakah['collection']->next_dr_daily ?? '' }}
                             </td>
                             <td>
-                                {{ $musyarakah->next_di_daily ?? '' }}
+                                {{ $musyarakah['collection']->next_di_daily ?? '' }}
                             </td>
                             <td>
-                                {{ $musyarakah->next_dp_daily ?? '' }}
+                                {{ $musyarakah['collection']->next_dp_daily ?? '' }}
                             </td>
                             <td>
-                                {{ $musyarakah->proyeksi_kenaikan_modal ?? '' }}
+                                {{ $musyarakah['collection']->proyeksi_kenaikan_modal ?? '' }}
                             </td>
                             <td>
-                                {{ $musyarakah->pemenuhan_modal_bank ?? '' }}
+                                {{ number_format($musyarakah['collection']->pemenuhan_modal_bank) ?? '' }}
                             </td>
                             <td>
-                                {{ $musyarakah->rate ?? '' }}
+                                {{ $musyarakah['collection']->rate ?? '' }}%
                             </td>
                             <td>
-                                {{ $musyarakah->jangka_waktu ?? '' }}
+                                {{ $musyarakah['collection']->jangka_waktu ?? '' }}
                             </td>
                             <td>
-                                {{ $musyarakah->proyeksi_kenaikan_pendapatan ?? '' }}
+                                {{ $musyarakah['collection']->proyeksi_kenaikan_pendapatan ?? '' }}%
                             </td>
                             <td>
-                                @can('musyarakah_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.musyarakahs.show', $musyarakah->id) }}">
-                                        {{ trans('global.view') }}
-                                    </a>
-                                @endcan
+                                <a class="btn btn-xs btn-primary" href="{{ route('admin.perhitungan-akads.showDetail', ['detail'=>'musyarakah','code'=>$musyarakah['code']]) }}">
+                                    {{ trans('global.view') }}
+                                </a>
 
-                                @can('musyarakah_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.musyarakahs.edit', $musyarakah->id) }}">
-                                        {{ trans('global.edit') }}
-                                    </a>
-                                @endcan
-
-                                @can('musyarakah_delete')
-                                    <form action="{{ route('admin.musyarakahs.destroy', $musyarakah->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
-                                    </form>
-                                @endcan
+                                <form action="{{ route('admin.perhitungan-akads.destroy', $musyarakah['id']) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
+                                </form>
 
                             </td>
 
                         </tr>
                     @endforeach
+                    @endif
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-
-
 
 @endsection
 @section('scripts')
@@ -174,11 +162,10 @@
     <script>
         $(function () {
             let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-            @can('musyarakah_delete')
             let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
             let deleteButton = {
                 text: deleteButtonTrans,
-                url: "{{ route('admin.musyarakahs.massDestroy') }}",
+                url: "{{ route('admin.perhitungan-akads.massDestroy') }}",
                 className: 'btn-danger',
                 action: function (e, dt, node, config) {
                     var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
@@ -202,7 +189,6 @@
                 }
             }
             dtButtons.push(deleteButton)
-            @endcan
 
             $.extend(true, $.fn.dataTable.defaults, {
                 orderCellsTop: true,

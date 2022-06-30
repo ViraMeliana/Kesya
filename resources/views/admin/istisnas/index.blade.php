@@ -2,50 +2,59 @@
 @section('content')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.perhitungan-akads.showCreate',['detail'=>'tabungan-mudharabah']) }}">
-                {{ trans('global.add') }} {{ trans('cruds.tabunganMudharabah.title_singular') }}
+            <a class="btn btn-success" href="{{ route('admin.perhitungan-akads.showCreate',['detail'=>'istisna']) }}">
+                {{ trans('global.add') }} {{ trans('cruds.istina.title_singular') }}
             </a>
         </div>
     </div>
     <div class="card">
         <div class="card-header">
-            {{ trans('cruds.tabunganMudharabah.title_singular') }} {{ trans('global.list') }}
+            {{ trans('cruds.istina.title_singular') }} {{ trans('global.list') }}
         </div>
 
         <div class="card-body">
             <div class="table-responsive">
-                <table class=" table table-bordered table-striped table-hover datatable datatable-TabunganMudharabah">
+                <table class=" table table-bordered table-striped table-hover datatable datatable-Istina">
                     <thead>
                     <tr>
                         <th width="10">
 
                         </th>
                         <th>
-                            {{ trans('cruds.tabunganMudharabah.fields.id') }}
+                            {{ trans('cruds.istina.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.tabunganMudharabah.fields.nama_nasabah') }}
+                            {{ trans('cruds.istina.fields.nama_barang') }}
                         </th>
                         <th>
-                            {{ trans('cruds.tabunganMudharabah.fields.nama_bank') }}
+                            {{ trans('cruds.istina.fields.bahan') }}
                         </th>
                         <th>
-                            {{ trans('cruds.tabunganMudharabah.fields.nisbah_percent_nasabah') }}
+                            {{ trans('cruds.istina.fields.ukuran') }}
                         </th>
                         <th>
-                            {{ trans('cruds.tabunganMudharabah.fields.nisbah_percent_bank') }}
+                            {{ trans('cruds.istina.fields.model') }}
                         </th>
                         <th>
-                            {{ trans('cruds.tabunganMudharabah.fields.tanggal') }}
+                            {{ trans('cruds.istina.fields.warna') }}
                         </th>
                         <th>
-                            {{ trans('cruds.tabunganMudharabah.fields.avg_nasabah') }}
+                            {{ trans('cruds.istina.fields.jumlah_pesanan') }}
                         </th>
                         <th>
-                            {{ trans('cruds.tabunganMudharabah.fields.total') }}
+                            {{ trans('cruds.istina.fields.harga_satuan') }}
                         </th>
                         <th>
-                            {{ trans('cruds.tabunganMudharabah.fields.pendapatan') }}
+                            {{ trans('cruds.istina.fields.jangka_waktu') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.istina.fields.biaya_bank') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.istina.fields.margin_keuntungan_istisna') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.istina.fields.margin_keuntungan_perbulan') }}
                         </th>
                         <th>
                             &nbsp;
@@ -54,44 +63,53 @@
                     </thead>
                     <tbody>
                     @if($result != null)
-                        @foreach($result as $key => $tabunganMudharabah)
-                            <tr data-entry-id="{{ $tabunganMudharabah['id'] }}">
+                        @foreach($result as $key => $istina)
+                            <tr data-entry-id="{{ $istina['id'] }}">
                                 <td>
 
                                 </td>
                                 <td>
-                                    {{ $tabunganMudharabah['id'] ?? '' }}
+                                    {{ $istina['id'] ?? '' }}
                                 </td>
                                 <td>
-                                    {{ $tabunganMudharabah['collection']->nama_nasabah ?? '' }}
+                                    {{ $istina['collection']->nama_barang ?? '' }}
                                 </td>
                                 <td>
-                                    {{ $tabunganMudharabah['collection']->nama_bank ?? '' }}
+                                    {{ $istina['collection']->bahan ?? '' }}
                                 </td>
                                 <td>
-                                    {{ $tabunganMudharabah['collection']->nisbah_percent_nasabah ?? '' }}%
+                                    {{ $istina['collection']->ukuran ?? '' }}
                                 </td>
                                 <td>
-                                    {{ $tabunganMudharabah['collection']->nisbah_percent_bank ?? '' }}%
+                                    {{ $istina['collection']->model ?? '' }}
                                 </td>
                                 <td>
-                                    {{ $tabunganMudharabah['collection']->tanggal ?? '' }}
+                                    {{ $istina['collection']->warna ?? '' }}
                                 </td>
                                 <td>
-                                    {{ number_format($tabunganMudharabah['collection']->avg_nasabah )?? '' }}
+                                    {{ number_format($istina['collection']->jumlah_pesanan) ?? '' }}
                                 </td>
                                 <td>
-                                    {{ number_format($tabunganMudharabah['collection']->total) ?? '' }}
+                                    {{ number_format($istina['collection']->harga_satuan) ?? '' }}
                                 </td>
                                 <td>
-                                    {{ number_format($tabunganMudharabah['collection']->pendapatan) ?? '' }}
+                                    {{ $istina['collection']->jangka_waktu ?? '' }}
                                 </td>
                                 <td>
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.perhitungan-akads.showDetail', ['detail'=>'tabungan-mudharabah','code'=>$tabunganMudharabah['code']]) }}">
+                                    {{ number_format($istina['collection']->biaya_bank) ?? '' }}
+                                </td>
+                                <td>
+                                    {{ $istina['collection']->margin_keuntungan_istisna ?? '' }}%
+                                </td>
+                                <td>
+                                    {{ $istina['collection']->margin_keuntungan_perbulan ?? '' }}%
+                                </td>
+                                <td>
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.perhitungan-akads.showDetail', ['detail'=>'istisna','code'=>$istina['code']]) }}">
                                         {{ trans('global.view') }}
                                     </a>
 
-                                    <form action="{{ route('admin.perhitungan-akads.destroy', $tabunganMudharabah['id']) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                    <form action="{{ route('admin.perhitungan-akads.destroy', $istina['id']) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
@@ -108,8 +126,6 @@
         </div>
     </div>
 
-
-
 @endsection
 @section('scripts')
     @parent
@@ -122,7 +138,7 @@
                 url: "{{ route('admin.perhitungan-akads.massDestroy') }}",
                 className: 'btn-danger',
                 action: function (e, dt, node, config) {
-                    var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
+                    var ids = $.map(dt.rows({selected: true}).nodes(), function (entry) {
                         return $(entry).data('entry-id')
                     });
 
@@ -137,8 +153,11 @@
                             headers: {'x-csrf-token': _token},
                             method: 'POST',
                             url: config.url,
-                            data: { ids: ids, _method: 'DELETE' }})
-                            .done(function () { location.reload() })
+                            data: {ids: ids, _method: 'DELETE'}
+                        })
+                            .done(function () {
+                                location.reload()
+                            })
                     }
                 }
             }
@@ -146,11 +165,11 @@
 
             $.extend(true, $.fn.dataTable.defaults, {
                 orderCellsTop: true,
-                order: [[ 1, 'desc' ]],
+                order: [[1, 'desc']],
                 pageLength: 10,
             });
-            let table = $('.datatable-TabunganMudharabah:not(.ajaxTable)').DataTable({ buttons: dtButtons })
-            $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
+            let table = $('.datatable-Istina:not(.ajaxTable)').DataTable({buttons: dtButtons})
+            $('a[data-toggle="tab"]').on('shown.bs.tab click', function (e) {
                 $($.fn.dataTable.tables(true)).DataTable()
                     .columns.adjust();
             });

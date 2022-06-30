@@ -12,108 +12,100 @@
             {{ trans('cruds.pembiayaanMudharabah.title_singular') }} {{ trans('global.list') }}
         </div>
 
-{{--        <div class="card-body">--}}
-{{--            <div class="table-responsive">--}}
-{{--                <table class=" table table-bordered table-striped table-hover datatable datatable-PembiayaanMudharabah">--}}
-{{--                    <thead>--}}
-{{--                    <tr>--}}
-{{--                        <th width="10">--}}
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class=" table table-bordered table-striped table-hover datatable datatable-PembiayaanMudharabah">
+                    <thead>
+                    <tr>
+                        <th width="10">
 
-{{--                        </th>--}}
-{{--                        <th>--}}
-{{--                            {{ trans('cruds.pembiayaanMudharabah.fields.id') }}--}}
-{{--                        </th>--}}
-{{--                        <th>--}}
-{{--                            {{ trans('cruds.pembiayaanMudharabah.fields.nama_nasabah') }}--}}
-{{--                        </th>--}}
-{{--                        <th>--}}
-{{--                            {{ trans('cruds.pembiayaanMudharabah.fields.nama_bank') }}--}}
-{{--                        </th>--}}
-{{--                        <th>--}}
-{{--                            {{ trans('cruds.pembiayaanMudharabah.fields.kebutuhan_modal') }}--}}
-{{--                        </th>--}}
-{{--                        <th>--}}
-{{--                            {{ trans('cruds.pembiayaanMudharabah.fields.modal_nasabah') }}--}}
-{{--                        </th>--}}
-{{--                        <th>--}}
-{{--                            {{ trans('cruds.pembiayaanMudharabah.fields.proyeksi_penerimaan_perbulan') }}--}}
-{{--                        </th>--}}
-{{--                        <th>--}}
-{{--                            {{ trans('cruds.pembiayaanMudharabah.fields.jangka_waktu') }}--}}
-{{--                        </th>--}}
-{{--                        <th>--}}
-{{--                            {{ trans('cruds.pembiayaanMudharabah.fields.rate') }}--}}
-{{--                        </th>--}}
-{{--                        <th>--}}
-{{--                            {{ trans('cruds.pembiayaanMudharabah.fields.penghasilan') }}--}}
-{{--                        </th>--}}
-{{--                        <th>--}}
-{{--                            &nbsp;--}}
-{{--                        </th>--}}
-{{--                    </tr>--}}
-{{--                    </thead>--}}
-{{--                    <tbody>--}}
-{{--                    @foreach($pembiayaanMudharabahs as $key => $pembiayaanMudharabah)--}}
-{{--                        <tr data-entry-id="{{ $pembiayaanMudharabah->id }}">--}}
-{{--                            <td>--}}
+                        </th>
+                        <th>
+                            {{ trans('cruds.pembiayaanMudharabah.fields.id') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.pembiayaanMudharabah.fields.nama_nasabah') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.pembiayaanMudharabah.fields.nama_bank') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.pembiayaanMudharabah.fields.kebutuhan_modal') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.pembiayaanMudharabah.fields.modal_nasabah') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.pembiayaanMudharabah.fields.proyeksi_penerimaan_perbulan') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.pembiayaanMudharabah.fields.jangka_waktu') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.pembiayaanMudharabah.fields.rate') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.pembiayaanMudharabah.fields.penghasilan') }}
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @if($result != null)
+                        @foreach($result as $key => $pembiayaanMudharabah)
+                        <tr data-entry-id="{{ $pembiayaanMudharabah['id'] }}">
+                            <td>
 
-{{--                            </td>--}}
-{{--                            <td>--}}
-{{--                                {{ $pembiayaanMudharabah->id ?? '' }}--}}
-{{--                            </td>--}}
-{{--                            <td>--}}
-{{--                                {{ $pembiayaanMudharabah->nama_nasabah ?? '' }}--}}
-{{--                            </td>--}}
-{{--                            <td>--}}
-{{--                                {{ $pembiayaanMudharabah->nama_bank ?? '' }}--}}
-{{--                            </td>--}}
-{{--                            <td>--}}
-{{--                                {{ $pembiayaanMudharabah->kebutuhan_modal ?? '' }}--}}
-{{--                            </td>--}}
-{{--                            <td>--}}
-{{--                                {{ $pembiayaanMudharabah->modal_nasabah ?? '' }}--}}
-{{--                            </td>--}}
-{{--                            <td>--}}
-{{--                                {{ $pembiayaanMudharabah->proyeksi_penerimaan_perbulan ?? '' }}--}}
-{{--                            </td>--}}
-{{--                            <td>--}}
-{{--                                {{ $pembiayaanMudharabah->jangka_waktu ?? '' }}--}}
-{{--                            </td>--}}
-{{--                            <td>--}}
-{{--                                {{ $pembiayaanMudharabah->rate ?? '' }}--}}
-{{--                            </td>--}}
-{{--                            <td>--}}
-{{--                                {{ $pembiayaanMudharabah->penghasilan ?? '' }}--}}
-{{--                            </td>--}}
-{{--                            <td>--}}
-{{--                                @can('pembiayaan_mudharabah_show')--}}
-{{--                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.pembiayaan-mudharabahs.show', $pembiayaanMudharabah->id) }}">--}}
-{{--                                        {{ trans('global.view') }}--}}
-{{--                                    </a>--}}
-{{--                                @endcan--}}
+                            </td>
+                            <td>
+                                {{ $pembiayaanMudharabah['id'] ?? '' }}
+                            </td>
+                            <td>
+                                {{ $pembiayaanMudharabah['collection']->nama_nasabah ?? '' }}
+                            </td>
+                            <td>
+                                {{ $pembiayaanMudharabah['collection']->nama_bank ?? '' }}
+                            </td>
+                            <td>
+                                {{ number_format($pembiayaanMudharabah['collection']->kebutuhan_modal) ?? '' }}
+                            </td>
+                            <td>
+                                {{ number_format($pembiayaanMudharabah['collection']->modal_nasabah) ?? '' }}
+                            </td>
+                            <td>
+                                {{ number_format($pembiayaanMudharabah['collection']->proyeksi_penerimaan_perbulan) ?? '' }}
+                            </td>
+                            <td>
+                                {{ $pembiayaanMudharabah['collection']->jangka_waktu ?? '' }}
+                            </td>
+                            <td>
+                                {{ $pembiayaanMudharabah['collection']->rate ?? '' }}%
+                            </td>
+                            <td>
+                                {{ number_format($pembiayaanMudharabah['collection']->penghasilan) ?? '' }}
+                            </td>
+                            <td>
+                                <a class="btn btn-xs btn-primary" href="{{ route('admin.perhitungan-akads.showDetail', ['detail'=>'pembiayaan-mudharabah','code'=>$pembiayaanMudharabah['code']]) }}">
+                                    {{ trans('global.view') }}
+                                </a>
 
-{{--                                @can('pembiayaan_mudharabah_edit')--}}
-{{--                                    <a class="btn btn-xs btn-info" href="{{ route('admin.pembiayaan-mudharabahs.edit', $pembiayaanMudharabah->id) }}">--}}
-{{--                                        {{ trans('global.edit') }}--}}
-{{--                                    </a>--}}
-{{--                                @endcan--}}
+                                <form action="{{ route('admin.perhitungan-akads.destroy', $pembiayaanMudharabah['id']) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
+                                </form>
 
-{{--                                @can('pembiayaan_mudharabah_delete')--}}
-{{--                                    <form action="{{ route('admin.pembiayaan-mudharabahs.destroy', $pembiayaanMudharabah->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">--}}
-{{--                                        <input type="hidden" name="_method" value="DELETE">--}}
-{{--                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
-{{--                                        <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">--}}
-{{--                                    </form>--}}
-{{--                                @endcan--}}
+                            </td>
 
-{{--                            </td>--}}
-
-{{--                        </tr>--}}
-{{--                    @endforeach--}}
-{{--                    </tbody>--}}
-{{--                </table>--}}
-{{--            </div>--}}
-{{--        </div>--}}
+                        </tr>
+                    @endforeach
+                    @endif
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
 
@@ -124,11 +116,10 @@
     <script>
         $(function () {
             let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-            @can('pembiayaan_mudharabah_delete')
             let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
             let deleteButton = {
                 text: deleteButtonTrans,
-                url: "{{ route('admin.pembiayaan-mudharabahs.massDestroy') }}",
+                url: "{{ route('admin.perhitungan-akads.massDestroy') }}",
                 className: 'btn-danger',
                 action: function (e, dt, node, config) {
                     var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
@@ -152,7 +143,6 @@
                 }
             }
             dtButtons.push(deleteButton)
-            @endcan
 
             $.extend(true, $.fn.dataTable.defaults, {
                 orderCellsTop: true,
