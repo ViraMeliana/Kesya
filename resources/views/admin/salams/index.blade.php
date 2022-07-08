@@ -3,7 +3,7 @@
         <div style="margin-bottom: 10px;" class="row">
             <div class="col-lg-12">
                 <a class="btn btn-success" href="{{ route('admin.perhitungan-akads.showCreate',['detail'=>'salam']) }}">
-                    {{ trans('global.add') }} {{ trans('cruds.tabunganMudharabah.title_singular') }}
+                    {{ trans('global.add') }} {{ trans('cruds.salam.title_singular') }}
                 </a>
             </div>
         </div>
@@ -63,16 +63,16 @@
                                     {{ $salam['collection']->jenis_barang ?? '' }}
                                 </td>
                                 <td>
-                                    {{ number_format($salam['collection']->jumlah_pesanan) ?? '' }}
+                                    {{ ($salam['collection']->jumlah_pesanan) ?? '' }}
                                 </td>
                                 <td>
                                     {{ $salam['collection']->jangka_waktu ?? '' }}
                                 </td>
                                 <td>
-                                    {{ number_format($salam['collection']->harga_beli) ?? '' }}
+                                    {{ ($salam['collection']->harga_beli) ?? '' }}
                                 </td>
                                 <td>
-                                    {{ number_format($salam['collection']->harga_jual) ?? '' }}
+                                    {{ ($salam['collection']->harga_jual) ?? '' }}
                                 </td>
                                 <td>
                                     <a class="btn btn-xs btn-primary" href="{{ route('admin.perhitungan-akads.showDetail', ['detail'=>'salam','code'=>$salam['code']]) }}">

@@ -78,13 +78,13 @@
                                     {{ $tabunganMudharabah['collection']->tanggal ?? '' }}
                                 </td>
                                 <td>
-                                    {{ number_format($tabunganMudharabah['collection']->avg_nasabah )?? '' }}
+                                    {{ ($tabunganMudharabah['collection']->avg_nasabah )?? '' }}
                                 </td>
                                 <td>
-                                    {{ number_format($tabunganMudharabah['collection']->total) ?? '' }}
+                                    {{ ($tabunganMudharabah['collection']->total) ?? '' }}
                                 </td>
                                 <td>
-                                    {{ number_format($tabunganMudharabah['collection']->pendapatan) ?? '' }}
+                                    {{ ($tabunganMudharabah['collection']->pendapatan) ?? '' }}
                                 </td>
                                 <td>
                                     <a class="btn btn-xs btn-primary" href="{{ route('admin.perhitungan-akads.showDetail', ['detail'=>'tabungan-mudharabah','code'=>$tabunganMudharabah['code']]) }}">

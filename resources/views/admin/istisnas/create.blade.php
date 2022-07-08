@@ -61,7 +61,7 @@
                 </div>
                 <div class="form-group">
                     <label class="required" for="jumlah_pesanan">{{ trans('cruds.istina.fields.jumlah_pesanan') }}</label>
-                    <input class="form-control {{ $errors->has('jumlah_pesanan') ? 'is-invalid' : '' }}" type="number" name="jumlah_pesanan" id="jumlah_pesanan" value="{{ old('jumlah_pesanan', '') }}" step="1" required>
+                    <input class="form-control {{ $errors->has('jumlah_pesanan') ? 'is-invalid' : '' }}" type="text" data-type="currency" name="jumlah_pesanan" id="jumlah_pesanan" value="{{ old('jumlah_pesanan', '') }}" step="1" required>
                     @if($errors->has('jumlah_pesanan'))
                         <div class="invalid-feedback">
                             {{ $errors->first('jumlah_pesanan') }}
@@ -71,7 +71,7 @@
                 </div>
                 <div class="form-group">
                     <label class="required" for="harga_satuan">{{ trans('cruds.istina.fields.harga_satuan') }}</label>
-                    <input class="form-control {{ $errors->has('harga_satuan') ? 'is-invalid' : '' }}" type="number" name="harga_satuan" id="harga_satuan" value="{{ old('harga_satuan', '') }}" step="1" required>
+                    <input class="form-control {{ $errors->has('harga_satuan') ? 'is-invalid' : '' }}" type="text" data-type="currency" name="harga_satuan" id="harga_satuan" value="{{ old('harga_satuan', '') }}" step="1" required>
                     @if($errors->has('harga_satuan'))
                         <div class="invalid-feedback">
                             {{ $errors->first('harga_satuan') }}
@@ -91,7 +91,7 @@
                 </div>
                 <div class="form-group">
                     <label class="required" for="biaya_bank">{{ trans('cruds.istina.fields.biaya_bank') }}</label>
-                    <input class="form-control {{ $errors->has('biaya_bank') ? 'is-invalid' : '' }}" type="number" name="biaya_bank" id="biaya_bank" value="{{ old('biaya_bank', '') }}" step="1" required>
+                    <input class="form-control {{ $errors->has('biaya_bank') ? 'is-invalid' : '' }}" type="text" data-type="currency" name="biaya_bank" id="biaya_bank" value="{{ old('biaya_bank', '') }}" step="1" required>
                     @if($errors->has('biaya_bank'))
                         <div class="invalid-feedback">
                             {{ $errors->first('biaya_bank') }}

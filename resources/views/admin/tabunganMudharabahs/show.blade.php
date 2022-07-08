@@ -68,7 +68,7 @@
                             {{ trans('cruds.tabunganMudharabah.fields.avg_nasabah') }}
                         </th>
                         <td>
-                            {{ number_format($result['collection']->avg_nasabah) }}
+                            {{ ($result['collection']->avg_nasabah) }}
                         </td>
                     </tr>
                     <tr>
@@ -76,7 +76,7 @@
                             {{ trans('cruds.tabunganMudharabah.fields.total') }}
                         </th>
                         <td>
-                            {{ number_format($result['collection']->total) }}
+                            {{ ($result['collection']->total) }}
                         </td>
                     </tr>
                     <tr>
@@ -84,7 +84,7 @@
                             {{ trans('cruds.tabunganMudharabah.fields.pendapatan') }}
                         </th>
                         <td>
-                            {{ number_format($result['collection']->pendapatan) }}
+                            {{ ($result['collection']->pendapatan) }}
                         </td>
                     </tr>
                     <tr>
@@ -92,7 +92,7 @@
                             Bagi Hasil untuk Bank
                         </th>
                         <td>
-                            {{ number_format($result['collection']->nisbah_bank) }}
+                            {{ number_format($result['collection']->nisbah_bank, 0, ',', '.') }}
                         </td>
                     </tr>
                     <tr>
@@ -100,7 +100,7 @@
                             Bagi Hasil untuk Semua Nasabah Penabung
                         </th>
                         <td>
-                            {{ number_format($result['collection']->nisbah_total_nasabah) }}
+                            {{ number_format($result['collection']->nisbah_total_nasabah, 0, ',', '.') }}
                         </td>
                     </tr>
                     <tr>
@@ -108,7 +108,7 @@
                             Bagi Hasil untuk nasabah {{ $result['collection']->nama_nasabah }}
                         </th>
                         <td>
-                            {{ number_format($result['collection']->nisbah_nasabah) }}
+                            {{ number_format($result['collection']->nisbah_nasabah, 0, ',', '.') }}
                         </td>
                     </tr>
                     <tr>
@@ -116,11 +116,16 @@
                             Tabungan Nasabah {{ $result['collection']->nama_nasabah }} pada awal bulan selanjutnya
                         </th>
                         <td>
-                            {{ number_format($result['collection']->tabungan_awal) }}
+                            {{ number_format($result['collection']->tabungan_awal, 0, ',', '.') }}
                         </td>
                     </tr>
                     </tbody>
                 </table>
+                <div class="form-group">
+                    <a class="btn btn-outline-warning" href="{{ route('admin.perhitungan-akads.export',['detail'=>'tabungan-mudharabah','code'=>$result['code']]) }}">
+                        Download PDF
+                    </a>
+                </div>
             </div>
         </div>
     </div>

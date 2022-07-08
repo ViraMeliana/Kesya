@@ -41,7 +41,7 @@
                 </div>
                 <div class="form-group">
                     <label class="required" for="kebutuhan_modal">{{ trans('cruds.pembiayaanMudharabah.fields.kebutuhan_modal') }}</label>
-                    <input class="form-control {{ $errors->has('kebutuhan_modal') ? 'is-invalid' : '' }}" type="number" name="kebutuhan_modal" id="kebutuhan_modal" value="{{ old('kebutuhan_modal', '') }}" required>
+                    <input class="form-control {{ $errors->has('kebutuhan_modal') ? 'is-invalid' : '' }}" type="text" data-type="currency" name="kebutuhan_modal" id="kebutuhan_modal" value="{{ old('kebutuhan_modal', '') }}" required>
                     @if($errors->has('kebutuhan_modal'))
                         <div class="invalid-feedback">
                             {{ $errors->first('kebutuhan_modal') }}
@@ -51,7 +51,7 @@
                 </div>
                 <div class="form-group">
                     <label class="required" for="modal_nasabah">{{ trans('cruds.pembiayaanMudharabah.fields.modal_nasabah') }}</label>
-                    <input class="form-control {{ $errors->has('modal_nasabah') ? 'is-invalid' : '' }}" type="number" name="modal_nasabah" id="modal_nasabah" value="{{ old('modal_nasabah', '') }}" required>
+                    <input class="form-control {{ $errors->has('modal_nasabah') ? 'is-invalid' : '' }}" type="text" data-type="currency" name="modal_nasabah" id="modal_nasabah" value="{{ old('modal_nasabah', '') }}" required>
                     @if($errors->has('modal_nasabah'))
                         <div class="invalid-feedback">
                             {{ $errors->first('modal_nasabah') }}
@@ -61,7 +61,7 @@
                 </div>
                 <div class="form-group">
                     <label class="required" for="proyeksi_penerimaan_perbulan">{{ trans('cruds.pembiayaanMudharabah.fields.proyeksi_penerimaan_perbulan') }}</label>
-                    <input class="form-control {{ $errors->has('proyeksi_penerimaan_perbulan') ? 'is-invalid' : '' }}" type="number" name="proyeksi_penerimaan_perbulan" id="proyeksi_penerimaan_perbulan" value="{{ old('proyeksi_penerimaan_perbulan', '') }}" required>
+                    <input class="form-control {{ $errors->has('proyeksi_penerimaan_perbulan') ? 'is-invalid' : '' }}" type="text" data-type="currency" name="proyeksi_penerimaan_perbulan" id="proyeksi_penerimaan_perbulan" value="{{ old('proyeksi_penerimaan_perbulan', '') }}" required>
                     @if($errors->has('proyeksi_penerimaan_perbulan'))
                         <div class="invalid-feedback">
                             {{ $errors->first('proyeksi_penerimaan_perbulan') }}
@@ -91,7 +91,7 @@
                 </div>
                 <div class="form-group">
                     <label class="required" for="penghasilan">{{ trans('cruds.pembiayaanMudharabah.fields.penghasilan') }}</label>
-                    <input class="form-control {{ $errors->has('penghasilan') ? 'is-invalid' : '' }}" type="number" name="penghasilan" id="penghasilan" value="{{ old('penghasilan', '') }}" required>
+                    <input class="form-control {{ $errors->has('penghasilan') ? 'is-invalid' : '' }}" type="text" data-type="currency" name="penghasilan" id="penghasilan" value="{{ old('penghasilan', '') }}" required>
                     @if($errors->has('penghasilan'))
                         <div class="invalid-feedback">
                             {{ $errors->first('penghasilan') }}

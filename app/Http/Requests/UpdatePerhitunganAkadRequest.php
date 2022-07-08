@@ -11,7 +11,7 @@ class UpdatePerhitunganAkadRequest extends FormRequest
 {
     public function authorize()
     {
-        return Gate::allows('perhitungan_akad_edit');
+        return Gate::allows('perhitungan_akad_access');
     }
 
     public function rules()

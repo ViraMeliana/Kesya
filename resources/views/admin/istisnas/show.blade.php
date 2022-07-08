@@ -68,7 +68,7 @@
                             {{ trans('cruds.istina.fields.jumlah_pesanan') }}
                         </th>
                         <td>
-                            {{ number_format($result['collection']->jumlah_pesanan) }}
+                            {{ ($result['collection']->jumlah_pesanan) }}
                         </td>
                     </tr>
                     <tr>
@@ -76,7 +76,7 @@
                             {{ trans('cruds.istina.fields.harga_satuan') }}
                         </th>
                         <td>
-                            {{ number_format($result['collection']->harga_satuan) }}
+                            {{ ($result['collection']->harga_satuan) }}
                         </td>
                     </tr>
                     <tr>
@@ -92,7 +92,7 @@
                             Kebutuhan Dana Nasabah
                         </th>
                         <td>
-                            {{ number_format($result['collection']->kebutuhan) }}
+                            {{ number_format($result['collection']->kebutuhan, 0, ',', '.') }}
                         </td>
                     </tr>
                     <tr>
@@ -100,7 +100,7 @@
                             {{ trans('cruds.istina.fields.biaya_bank') }}
                         </th>
                         <td>
-                            {{ number_format($result['collection']->biaya_bank) }}
+                            {{ ($result['collection']->biaya_bank) }}
                         </td>
                     </tr>
                     <tr>
@@ -113,7 +113,7 @@
                             Pembiayaan dan Biaya Bank
                         </th>
                         <td>
-                            {{ number_format($result['collection']->total_pembiayaan) }}
+                            {{ number_format($result['collection']->total_pembiayaan, 0, ',', '.') }}
                         </td>
                     </tr>
                     <tr>
@@ -129,7 +129,7 @@
                             Keuntungan Bank
                         </th>
                         <td>
-                            {{ number_format($result['collection']->keuntungan_bank_akhir) }}
+                            {{ number_format($result['collection']->keuntungan_bank_akhir, 0, ',', '.') }}
                         </td>
                     </tr>
                     <tr>
@@ -137,7 +137,7 @@
                             Jumlah yang dibayar nasabah di akhir periode
                         </th>
                         <td>
-                            {{ number_format($result['collection']->pembayaran_akhir) }}
+                            {{ number_format($result['collection']->pembayaran_akhir, 0, ',', '.') }}
                         </td>
                     </tr>
                     <tr>
@@ -158,7 +158,7 @@
                             Keuntungan bank
                         </th>
                         <td>
-                            {{ number_format($result['collection']->keuntungan_bank_perbulan) }}
+                            {{ number_format($result['collection']->keuntungan_bank_perbulan, 0, ',', '.') }}
                         </td>
                     </tr>
                     <tr>
@@ -166,7 +166,7 @@
                             Angsuran per bulan
                         </th>
                         <td>
-                            {{ number_format($result['collection']->angsuran_perbulan) }}
+                            {{ number_format($result['collection']->angsuran_perbulan, 0, ',', '.') }}
                         </td>
                     </tr>
                     <tr>
@@ -174,11 +174,16 @@
                             Pembayaran pertama
                         </th>
                         <td>
-                            {{ number_format($result['collection']->pembayaran_pertama) }}
+                            {{ number_format($result['collection']->pembayaran_pertama, 0, ',', '.') }}
                         </td>
                     </tr>
                     </tbody>
                 </table>
+                <div class="form-group">
+                    <a class="btn btn-outline-warning" href="{{ route('admin.perhitungan-akads.export',['detail'=>'istisna','code'=>$result['code']]) }}">
+                        Download PDF
+                    </a>
+                </div>
             </div>
         </div>
     </div>

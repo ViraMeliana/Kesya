@@ -61,7 +61,7 @@
                 </div>
                 <div class="form-group">
                     <label class="required" for="avg_nasabah">{{ trans('cruds.tabunganMudharabah.fields.avg_nasabah') }}</label>
-                    <input class="form-control {{ $errors->has('avg_nasabah') ? 'is-invalid' : '' }}" type="number" name="avg_nasabah" id="avg_nasabah" value="{{ old('avg_nasabah', '') }}" required>
+                    <input class="form-control {{ $errors->has('avg_nasabah') ? 'is-invalid' : '' }}" type="text" data-type="currency" name="avg_nasabah" id="avg_nasabah" value="{{ old('avg_nasabah', '') }}" required>
                     @if($errors->has('avg_nasabah'))
                         <div class="invalid-feedback">
                             {{ $errors->first('avg_nasabah') }}
@@ -71,7 +71,7 @@
                 </div>
                 <div class="form-group">
                     <label class="required" for="total">{{ trans('cruds.tabunganMudharabah.fields.total') }}</label>
-                    <input class="form-control {{ $errors->has('total') ? 'is-invalid' : '' }}" type="number" name="total" id="total" value="{{ old('total', '') }}" required>
+                    <input class="form-control {{ $errors->has('total') ? 'is-invalid' : '' }}" type="text" data-type="currency" name="total" id="total" value="{{ old('total', '') }}" required>
                     @if($errors->has('total'))
                         <div class="invalid-feedback">
                             {{ $errors->first('total') }}
@@ -81,7 +81,7 @@
                 </div>
                 <div class="form-group">
                     <label class="required" for="pendapatan">{{ trans('cruds.tabunganMudharabah.fields.pendapatan') }}</label>
-                    <input class="form-control {{ $errors->has('pendapatan') ? 'is-invalid' : '' }}" type="number" name="pendapatan" id="pendapatan" value="{{ old('pendapatan', '') }}" required>
+                    <input class="form-control {{ $errors->has('pendapatan') ? 'is-invalid' : '' }}" type="text" data-type="currency" name="pendapatan" id="pendapatan" value="{{ old('pendapatan', '') }}" required>
                     @if($errors->has('pendapatan'))
                         <div class="invalid-feedback">
                             {{ $errors->first('pendapatan') }}

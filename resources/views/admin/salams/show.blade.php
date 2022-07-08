@@ -44,7 +44,7 @@
                             {{ trans('cruds.salam.fields.jumlah_pesanan') }}
                         </th>
                         <td>
-                            {{ number_format($result['collection']->jumlah_pesanan) }}
+                            {{ ($result['collection']->jumlah_pesanan) }}
                         </td>
                     </tr>
                     <tr>
@@ -60,7 +60,7 @@
                             Jumlah pembiayaan pada nasabah, diserahkan saat akad
                         </th>
                         <td>
-                            {{ number_format($result['collection']->jumlah_pembiayaan) }}
+                            {{ number_format($result['collection']->jumlah_pembiayaan, 0, ',', '.') }}
                         </td>
                     </tr>
                     <tr>
@@ -68,7 +68,7 @@
                             {{ trans('cruds.salam.fields.harga_beli') }}
                         </th>
                         <td>
-                            {{ number_format($result['collection']->harga_beli) }}
+                            {{ ($result['collection']->harga_beli) }}
                         </td>
                     </tr>
                     <tr>
@@ -76,7 +76,7 @@
                             {{ trans('cruds.salam.fields.harga_jual') }}
                         </th>
                         <td>
-                            {{ number_format($result['collection']->harga_jual) }}
+                            {{ ($result['collection']->harga_jual) }}
                         </td>
                     </tr>
                     <tr>
@@ -84,7 +84,7 @@
                             Total harga jual
                         </th>
                         <td>
-                            {{ number_format($result['collection']->total_harga_jual) }}
+                            {{ number_format($result['collection']->total_harga_jual, 0, ',', '.') }}
                         </td>
                     </tr>
                     <tr>
@@ -92,11 +92,16 @@
                             Keuntungan/kerugian bank
                         </th>
                         <td>
-                            {{ number_format($result['collection']->laba_bank) }}
+                            {{ number_format($result['collection']->laba_bank, 0, ',', '.') }}
                         </td>
                     </tr>
                     </tbody>
                 </table>
+                <div class="form-group">
+                    <a class="btn btn-outline-warning" href="{{ route('admin.perhitungan-akads.export',['detail'=>'salam','code'=>$result['code']]) }}">
+                        Download PDF
+                    </a>
+                </div>
             </div>
         </div>
     </div>

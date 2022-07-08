@@ -12,7 +12,6 @@ Route::get('/home', function () {
 
 Route::redirect('/', '/login');
 
-
 Auth::routes();
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
@@ -54,6 +53,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('perhitungan-akads/{detail}/create', 'PerhitunganAkadController@showCreate')->name('perhitungan-akads.showCreate');
     Route::post('perhitungan-akads/{detail}/calculate', 'PerhitunganAkadController@calculate')->name('perhitungan-akads.calculate');
     Route::get('perhitungan-akads/{detail}/show/{code}', 'PerhitunganAkadController@showDetail')->name('perhitungan-akads.showDetail');
+    Route::get('perhitungan-akads/{detail}/export/{code}', 'PerhitunganAkadController@export')->name('perhitungan-akads.export');
 
     Route::resource('perhitungan-akads', 'PerhitunganAkadController');
 });

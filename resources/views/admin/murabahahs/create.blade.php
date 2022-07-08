@@ -12,7 +12,7 @@
                 @csrf
                 <div class="form-group">
                     <label class="required" for="harga_beli">{{ trans('cruds.murabahah.fields.harga_beli') }}</label>
-                    <input class="form-control {{ $errors->has('harga_beli') ? 'is-invalid' : '' }}" type="number" name="harga_beli" id="harga_beli" value="{{ old('harga_beli', '') }}" step="1" required>
+                    <input class="form-control {{ $errors->has('harga_beli') ? 'is-invalid' : '' }}" type="text" data-type="currency" name="harga_beli" id="harga_beli" value="{{ old('harga_beli', '') }}" step="1" required>
                     @if($errors->has('harga_beli'))
                         <div class="invalid-feedback">
                             {{ $errors->first('harga_beli') }}
@@ -52,7 +52,7 @@
                 </div>
                 <div class="form-group">
                     <label class="required" for="estimasi_pembiayaan_bank">{{ trans('cruds.murabahah.fields.estimasi_pembiayaan_bank') }}</label>
-                    <input class="form-control {{ $errors->has('estimasi_pembiayaan_bank') ? 'is-invalid' : '' }}" type="number" name="estimasi_pembiayaan_bank" id="estimasi_pembiayaan_bank" value="{{ old('estimasi_pembiayaan_bank', '') }}" step="1" required>
+                    <input class="form-control {{ $errors->has('estimasi_pembiayaan_bank') ? 'is-invalid' : '' }}" type="text" data-type="currency" name="estimasi_pembiayaan_bank" id="estimasi_pembiayaan_bank" value="{{ old('estimasi_pembiayaan_bank', '') }}" step="1" required>
                     @if($errors->has('estimasi_pembiayaan_bank'))
                         <div class="invalid-feedback">
                             {{ $errors->first('estimasi_pembiayaan_bank') }}
@@ -62,7 +62,7 @@
                 </div>
                 <div class="form-group">
                     <label class="required" for="estimasi_pembiayaan_tahunan">{{ trans('cruds.murabahah.fields.estimasi_pembiayaan_tahunan') }}</label>
-                    <input type="number" class="form-control {{ $errors->has('estimasi_pembiayaan_tahunan') ? 'is-invalid' : '' }}" name="estimasi_pembiayaan_tahunan" id="estimasi_pembiayaan_tahunan" value="{{ old('estimasi_pembiayaan_tahunan') }}" required>
+                    <input type="text" data-type="currency" class="form-control {{ $errors->has('estimasi_pembiayaan_tahunan') ? 'is-invalid' : '' }}" name="estimasi_pembiayaan_tahunan" id="estimasi_pembiayaan_tahunan" value="{{ old('estimasi_pembiayaan_tahunan') }}" required>
                     @if($errors->has('estimasi_pembiayaan_tahunan'))
                         <div class="invalid-feedback">
                             {{ $errors->first('estimasi_pembiayaan_tahunan') }}
@@ -82,7 +82,7 @@
                 </div>
                 <div class="form-group">
                     <label class="required" for="biaya_bank">{{ trans('cruds.murabahah.fields.biaya_bank') }}</label>
-                    <input class="form-control {{ $errors->has('biaya_bank') ? 'is-invalid' : '' }}" type="number" name="biaya_bank" id="biaya_bank" value="{{ old('biaya_bank', '') }}" step="1" required>
+                    <input class="form-control {{ $errors->has('biaya_bank') ? 'is-invalid' : '' }}" type="text" data-type="currency" name="biaya_bank" id="biaya_bank" value="{{ old('biaya_bank', '') }}" step="1" required>
                     @if($errors->has('biaya_bank'))
                         <div class="invalid-feedback">
                             {{ $errors->first('biaya_bank') }}
@@ -92,7 +92,7 @@
                 </div>
                 <div class="form-group">
                     <label class="required" for="biaya_notaris">{{ trans('cruds.murabahah.fields.biaya_notaris') }}</label>
-                    <input class="form-control {{ $errors->has('biaya_notaris') ? 'is-invalid' : '' }}" type="number" name="biaya_notaris" id="biaya_notaris" value="{{ old('biaya_notaris', '') }}" step="1" required>
+                    <input class="form-control {{ $errors->has('biaya_notaris') ? 'is-invalid' : '' }}" type="text" data-type="currency" name="biaya_notaris" id="biaya_notaris" value="{{ old('biaya_notaris', '') }}" step="1" required>
                     @if($errors->has('biaya_notaris'))
                         <div class="invalid-feedback">
                             {{ $errors->first('biaya_notaris') }}

@@ -11,7 +11,7 @@
                 @csrf
                 <div class="form-group">
                     <label class="required" for="net_sales_tahun">{{ trans('cruds.musyarakah.fields.net_sales_tahun') }}</label>
-                    <input class="form-control {{ $errors->has('net_sales_tahun') ? 'is-invalid' : '' }}" type="number" name="net_sales_tahun" id="net_sales_tahun" value="{{ old('net_sales_tahun', '') }}" step="0.01" required>
+                    <input class="form-control {{ $errors->has('net_sales_tahun') ? 'is-invalid' : '' }}" type="text" data-type="currency" name="net_sales_tahun" id="net_sales_tahun" value="{{ old('net_sales_tahun', '') }}" step="0.01" required>
                     @if($errors->has('net_sales_tahun'))
                         <div class="invalid-feedback">
                             {{ $errors->first('net_sales_tahun') }}
@@ -21,7 +21,7 @@
                 </div>
                 <div class="form-group">
                     <label class="required" for="hpp_pertahun">{{ trans('cruds.musyarakah.fields.hpp_pertahun') }}</label>
-                    <input class="form-control {{ $errors->has('hpp_pertahun') ? 'is-invalid' : '' }}" type="number" name="hpp_pertahun" id="hpp_pertahun" value="{{ old('hpp_pertahun', '') }}" required>
+                    <input class="form-control {{ $errors->has('hpp_pertahun') ? 'is-invalid' : '' }}" type="text" data-type="currency" name="hpp_pertahun" id="hpp_pertahun" value="{{ old('hpp_pertahun', '') }}" required>
                     @if($errors->has('hpp_pertahun'))
                         <div class="invalid-feedback">
                             {{ $errors->first('hpp_pertahun') }}
@@ -61,7 +61,7 @@
                 </div>
                 <div class="form-group">
                     <label class="required" for="nwc">{{ trans('cruds.musyarakah.fields.nwc') }}</label>
-                    <input class="form-control {{ $errors->has('nwc') ? 'is-invalid' : '' }}" type="number" name="nwc" id="nwc" value="{{ old('nwc', '') }}"  required>
+                    <input class="form-control {{ $errors->has('nwc') ? 'is-invalid' : '' }}" type="text" data-type="currency" name="nwc" id="nwc" value="{{ old('nwc', '') }}"  required>
                     @if($errors->has('nwc'))
                         <div class="invalid-feedback">
                             {{ $errors->first('nwc') }}
@@ -131,7 +131,7 @@
                 </div>
                 <div class="form-group">
                     <label class="required" for="pemenuhan_modal_bank">{{ trans('cruds.musyarakah.fields.pemenuhan_modal_bank') }}</label>
-                    <input class="form-control {{ $errors->has('pemenuhan_modal_bank') ? 'is-invalid' : '' }}" type="number" name="pemenuhan_modal_bank" id="pemenuhan_modal_bank" value="{{ old('pemenuhan_modal_bank', '') }}" required>
+                    <input class="form-control {{ $errors->has('pemenuhan_modal_bank') ? 'is-invalid' : '' }}" type="text" data-type="currency" name="pemenuhan_modal_bank" id="pemenuhan_modal_bank" value="{{ old('pemenuhan_modal_bank', '') }}" required>
                     @if($errors->has('pemenuhan_modal_bank'))
                         <div class="invalid-feedback">
                             {{ $errors->first('pemenuhan_modal_bank') }}

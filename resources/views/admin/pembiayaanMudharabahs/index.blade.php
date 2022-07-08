@@ -69,13 +69,13 @@
                                 {{ $pembiayaanMudharabah['collection']->nama_bank ?? '' }}
                             </td>
                             <td>
-                                {{ number_format($pembiayaanMudharabah['collection']->kebutuhan_modal) ?? '' }}
+                                {{ ($pembiayaanMudharabah['collection']->kebutuhan_modal) ?? '' }}
                             </td>
                             <td>
-                                {{ number_format($pembiayaanMudharabah['collection']->modal_nasabah) ?? '' }}
+                                {{ ($pembiayaanMudharabah['collection']->modal_nasabah) ?? '' }}
                             </td>
                             <td>
-                                {{ number_format($pembiayaanMudharabah['collection']->proyeksi_penerimaan_perbulan) ?? '' }}
+                                {{ ($pembiayaanMudharabah['collection']->proyeksi_penerimaan_perbulan) ?? '' }}
                             </td>
                             <td>
                                 {{ $pembiayaanMudharabah['collection']->jangka_waktu ?? '' }}
@@ -84,7 +84,7 @@
                                 {{ $pembiayaanMudharabah['collection']->rate ?? '' }}%
                             </td>
                             <td>
-                                {{ number_format($pembiayaanMudharabah['collection']->penghasilan) ?? '' }}
+                                {{ ($pembiayaanMudharabah['collection']->penghasilan) ?? '' }}
                             </td>
                             <td>
                                 <a class="btn btn-xs btn-primary" href="{{ route('admin.perhitungan-akads.showDetail', ['detail'=>'pembiayaan-mudharabah','code'=>$pembiayaanMudharabah['code']]) }}">

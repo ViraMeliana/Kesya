@@ -87,16 +87,16 @@
                                     {{ $istina['collection']->warna ?? '' }}
                                 </td>
                                 <td>
-                                    {{ number_format($istina['collection']->jumlah_pesanan) ?? '' }}
+                                    {{ ($istina['collection']->jumlah_pesanan) ?? '' }}
                                 </td>
                                 <td>
-                                    {{ number_format($istina['collection']->harga_satuan) ?? '' }}
+                                    {{ ($istina['collection']->harga_satuan) ?? '' }}
                                 </td>
                                 <td>
                                     {{ $istina['collection']->jangka_waktu ?? '' }}
                                 </td>
                                 <td>
-                                    {{ number_format($istina['collection']->biaya_bank) ?? '' }}
+                                    {{ ($istina['collection']->biaya_bank) ?? '' }}
                                 </td>
                                 <td>
                                     {{ $istina['collection']->margin_keuntungan_istisna ?? '' }}%

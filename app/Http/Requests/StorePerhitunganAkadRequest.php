@@ -11,7 +11,7 @@ class StorePerhitunganAkadRequest extends FormRequest
 {
     public function authorize()
     {
-        return Gate::allows('perhitungan_akad_create');
+        return Gate::allows('perhitungan_akad_access');
     }
 
     public function rules()
@@ -37,7 +37,7 @@ class StorePerhitunganAkadRequest extends FormRequest
                 'string',
             ],
             'harga_satuan' => [
-                'integer',
+                'string',
             ],
             'margin_keuntungan_istisna' => [
                 'integer',
@@ -55,21 +55,22 @@ class StorePerhitunganAkadRequest extends FormRequest
                 'integer',
             ],
             'estimasi_pembiayaan_bank' => [
-                'integer',
+                'string',
             ],
             'estimasi_pembiayaan_tahunan' => [
+                'string',
             ],
             'biaya_bank' => [
-                'integer',
+                'string',
             ],
             'biaya_notaris' => [
-                'integer',
+                'string',
             ],
             'net_sales_tahun' => [
-                'numeric',
+                'string',
             ],
             'hpp_pertahun' => [
-                'numeric',
+                'string',
             ],
             'last_dr_daily' => [
                 'integer',
@@ -81,13 +82,13 @@ class StorePerhitunganAkadRequest extends FormRequest
                 'integer',
             ],
             'nwc' => [
-                'numeric',
+                'string',
             ],
             'asumsi_kenaikan_penjualan' => [
-                'numeric',
+                'string',
             ],
             'asumsi_hpp' => [
-                'numeric',
+                'string',
             ],
             'next_dr_daily' => [
                 'integer',
@@ -99,13 +100,13 @@ class StorePerhitunganAkadRequest extends FormRequest
                 'integer',
             ],
             'proyeksi_kenaikan_modal' => [
-                'numeric',
+                'string',
             ],
             'pemenuhan_modal_bank' => [
-                'numeric',
+                'string',
             ],
             'proyeksi_kenaikan_pendapatan' => [
-                'numeric',
+                'string',
             ],
             'nama_nasabah' => [
                 'string',
@@ -114,19 +115,19 @@ class StorePerhitunganAkadRequest extends FormRequest
                 'string',
             ],
             'kebutuhan_modal' => [
-                'numeric',
+                'string',
             ],
             'modal_nasabah' => [
-                'numeric',
+                'string',
             ],
             'proyeksi_penerimaan_perbulan' => [
-                'numeric',
+                'string',
             ],
             'rate' => [
-                'numeric',
+                'string',
             ],
             'penghasilan' => [
-                'numeric',
+                'string',
             ],
             'nama_barang' => [
                 'string',
@@ -135,16 +136,16 @@ class StorePerhitunganAkadRequest extends FormRequest
                 'string',
             ],
             'jumlah_pesanan' => [
-                'integer',
+                'string',
             ],
             'jangka_waktu' => [
                 'integer',
             ],
             'harga_beli' => [
-                'integer',
+                'string',
             ],
             'harga_jual' => [
-                'integer',
+                'string',
             ],
         ];
     }

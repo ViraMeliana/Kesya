@@ -133,22 +133,6 @@ class PermissionsTableSeeder extends Seeder
                 'title' => 'kamus_istilah_access',
             ],
             [
-                'id'    => 32,
-                'title' => 'perhitungan_akad_create',
-            ],
-            [
-                'id'    => 33,
-                'title' => 'perhitungan_akad_edit',
-            ],
-            [
-                'id'    => 34,
-                'title' => 'perhitungan_akad_show',
-            ],
-            [
-                'id'    => 35,
-                'title' => 'perhitungan_akad_delete',
-            ],
-            [
                 'id'    => 36,
                 'title' => 'perhitungan_akad_access',
             ],

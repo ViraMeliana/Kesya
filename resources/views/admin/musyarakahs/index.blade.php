@@ -87,10 +87,10 @@
                                 {{ $musyarakah['id'] ?? '' }}
                             </td>
                             <td>
-                                {{ number_format($musyarakah['collection']->net_sales_tahun) ?? '' }}
+                                {{ ($musyarakah['collection']->net_sales_tahun) ?? '' }}
                             </td>
                             <td>
-                                {{ number_format($musyarakah['collection']->hpp_pertahun )?? '' }}
+                                {{ ($musyarakah['collection']->hpp_pertahun )?? '' }}
                             </td>
                             <td>
                                 {{ $musyarakah['collection']->last_dr_daily ?? '' }}
@@ -102,7 +102,7 @@
                                 {{ $musyarakah['collection']->last_dp_daily ?? '' }}
                             </td>
                             <td>
-                                {{ number_format($musyarakah['collection']->nwc) ?? '' }}
+                                {{ ($musyarakah['collection']->nwc) ?? '' }}
                             </td>
                             <td>
                                 {{ $musyarakah['collection']->asumsi_kenaikan_penjualan ?? '' }}%
@@ -123,7 +123,7 @@
                                 {{ $musyarakah['collection']->proyeksi_kenaikan_modal ?? '' }}
                             </td>
                             <td>
-                                {{ number_format($musyarakah['collection']->pemenuhan_modal_bank) ?? '' }}
+                                {{ ($musyarakah['collection']->pemenuhan_modal_bank) ?? '' }}
                             </td>
                             <td>
                                 {{ $musyarakah['collection']->rate ?? '' }}%

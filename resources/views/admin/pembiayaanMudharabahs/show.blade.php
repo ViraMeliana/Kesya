@@ -44,7 +44,7 @@
                             {{ trans('cruds.pembiayaanMudharabah.fields.kebutuhan_modal') }}
                         </th>
                         <td>
-                            {{ number_format($result['collection']->kebutuhan_modal) }}
+                            {{ ($result['collection']->kebutuhan_modal) }}
                         </td>
                     </tr>
                     <tr>
@@ -52,7 +52,7 @@
                             Pembiayaan Bank
                         </th>
                         <td>
-                            {{ number_format($result['collection']->kebutuhan_modal) }}
+                            {{ ($result['collection']->kebutuhan_modal) }}
                         </td>
                     </tr>
                     <tr>
@@ -60,7 +60,7 @@
                             {{ trans('cruds.pembiayaanMudharabah.fields.modal_nasabah') }}
                         </th>
                         <td>
-                            {{ number_format($result['collection']->modal_nasabah) }}
+                            {{ ($result['collection']->modal_nasabah) }}
                         </td>
                     </tr>
                     <tr>
@@ -68,7 +68,7 @@
                             {{ trans('cruds.pembiayaanMudharabah.fields.proyeksi_penerimaan_perbulan') }}
                         </th>
                         <td>
-                            {{ number_format($result['collection']->proyeksi_penerimaan_perbulan) }}
+                            {{ ($result['collection']->proyeksi_penerimaan_perbulan) }}
                         </td>
                     </tr>
                     <tr>
@@ -76,7 +76,7 @@
                             Proyeksi Penerimaan Perbulan
                         </th>
                         <td>
-                            {{ number_format($result['collection']->proyeksi_penerimaan_pertahun) }}
+                            {{ number_format($result['collection']->proyeksi_penerimaan_pertahun, 0, ',', '.') }}
                         </td>
                     </tr>
                     <tr>
@@ -100,7 +100,7 @@
                             Ekpektasi bagi hasil per tahun (Rp)
                         </th>
                         <td>
-                            {{ number_format($result['collection']->nisbah_pertahun) }}
+                            {{ number_format($result['collection']->nisbah_pertahun, 0, ',', '.') }}
                         </td>
                     </tr>
                     <tr>
@@ -119,8 +119,8 @@
                             {{ $result['collection']->nisbah_nasabah }}%
                         </td>
                     </tr>
-                    <tr>
-                        <th colspan="2">
+                    <tr style="background-color: darkgreen; color: white">
+                        <th colspan="2" >
                             Perhitungan bagi hasil riil yang dibayarkan nasabah
                         </th>
                     </tr>
@@ -129,7 +129,7 @@
                             {{ trans('cruds.pembiayaanMudharabah.fields.penghasilan') }}
                         </th>
                         <td>
-                            {{ number_format($result['collection']->penghasilan) }}
+                            {{ ($result['collection']->penghasilan) }}
                         </td>
                     </tr>
                     <tr>
@@ -137,7 +137,7 @@
                             Bagi Hasil Laba/Rugi Nasabah
                         </th>
                         <td>
-                            {{ number_format($result['collection']->laba_nasabah) }}
+                            {{ number_format($result['collection']->laba_nasabah, 0, ',', '.') }}
                         </td>
                     </tr>
                     <tr>
@@ -145,11 +145,16 @@
                             Bagi Hasil Laba/Rugi Bank
                         </th>
                         <td>
-                            {{ number_format($result['collection']->laba_bank) }}
+                            {{ number_format($result['collection']->laba_bank, 0, ',', '.') }}
                         </td>
                     </tr>
                     </tbody>
                 </table>
+                <div class="form-group">
+                    <a class="btn btn-outline-warning" href="{{ route('admin.perhitungan-akads.export',['detail'=>'pembiayaan-mudharabah','code'=>$result['code']]) }}">
+                        Download PDF
+                    </a>
+                </div>
             </div>
         </div>
     </div>

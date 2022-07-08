@@ -28,7 +28,7 @@
                             {{ trans('cruds.musyarakah.fields.net_sales_tahun') }}
                         </th>
                         <td>
-                            {{ number_format($result['collection']->net_sales_tahun) }}
+                            {{ ($result['collection']->net_sales_tahun) }}
                         </td>
                     </tr>
                     <tr>
@@ -36,7 +36,7 @@
                             {{ trans('cruds.musyarakah.fields.hpp_pertahun') }}
                         </th>
                         <td>
-                            {{ number_format($result['collection']->hpp_pertahun) }}
+                            {{ ($result['collection']->hpp_pertahun) }}
                         </td>
                     </tr>
                     <tr>
@@ -100,7 +100,7 @@
                             {{ trans('cruds.musyarakah.fields.nwc') }}
                         </th>
                         <td>
-                            {{ number_format($result['collection']->nwc) }}
+                            {{ ($result['collection']->nwc) }}
                         </td>
                     </tr>
                     <tr>
@@ -121,7 +121,7 @@
                             Proyeksi penjualan bersih (tahun)
                         </th>
                         <td>
-                            {{ number_format($result['collection']->proyeksi_net_sales_yearly) }}
+                            {{ number_format($result['collection']->proyeksi_net_sales_yearly, 0, ',', '.') }}
                         </td>
                     </tr>
                     <tr>
@@ -129,7 +129,7 @@
                             Proyeksi penjualan bersih (bulan)
                         </th>
                         <td>
-                            {{ number_format($result['collection']->proyeksi_net_sales_monthly) }}
+                            {{ number_format($result['collection']->proyeksi_net_sales_monthly, 0, ',', '.') }}
                         </td>
                     </tr>
                     <tr>
@@ -145,7 +145,7 @@
                             Asumsi (tahun)
                         </th>
                         <td>
-                            {{ number_format($result['collection']->proyeksi_hpp_yearly) }}
+                            {{ number_format($result['collection']->proyeksi_hpp_yearly, 0, ',', '.') }}
                         </td>
                     </tr>
                     <tr>
@@ -153,7 +153,7 @@
                             Asumsi (bulan)
                         </th>
                         <td>
-                            {{ number_format($result['collection']->proyeksi_hpp_monthly) }}
+                            {{ number_format($result['collection']->proyeksi_hpp_monthly, 0, ',', '.') }}
                         </td>
                     </tr>
                     <tr>
@@ -222,7 +222,7 @@
                             Proyeksi penjualan bersih (bulan)
                         </th>
                         <td>
-                            {{ number_format($result['collection']->next_proyeksi_net_sales_monthly) }}
+                            {{ number_format($result['collection']->next_proyeksi_net_sales_monthly, 0, ',', '.') }}
                         </td>
                     </tr>
                     <tr>
@@ -230,7 +230,7 @@
                             Proyeksi HPP (bulan)
                         </th>
                         <td>
-                            {{ number_format($result['collection']->next_proyeksi_hpp_monthly) }}
+                            {{ number_format($result['collection']->next_proyeksi_hpp_monthly, 0, ',', '.') }}
                         </td>
                     </tr>
                     <tr>
@@ -238,7 +238,7 @@
                             Last NWC
                         </th>
                         <td>
-                            {{ number_format($result['collection']->last_nwc) }}
+                            {{ number_format($result['collection']->last_nwc, 0, ',', '.') }}
                         </td>
                     </tr>
                     <tr>
@@ -246,7 +246,7 @@
                             Financial Needs
                         </th>
                         <td>
-                            {{ number_format($result['collection']->financial_needs) }}
+                            {{ number_format($result['collection']->financial_needs, 0, ',', '.') }}
                         </td>
                     </tr>
                     <tr>
@@ -254,7 +254,7 @@
                             Kebutuhan Tambahan Modal Kerja
                         </th>
                         <td>
-                            {{ number_format($result['collection']->tambahan_modal) }}
+                            {{ number_format($result['collection']->tambahan_modal, 0, ',', '.') }}
                         </td>
                     </tr>
                     <tr>
@@ -262,7 +262,7 @@
                             {{ trans('cruds.musyarakah.fields.pemenuhan_modal_bank') }}
                         </th>
                         <td>
-                            {{ number_format($result['collection']->pemenuhan_modal_bank) }}
+                            {{ ($result['collection']->pemenuhan_modal_bank) }}
                         </td>
                     </tr>
                     <tr>
@@ -270,7 +270,7 @@
                            Pemenuhan Modal Nasabah
                         </th>
                         <td>
-                            {{ number_format($result['collection']->pemenuhan_modal_nasabah) }}
+                            {{ number_format($result['collection']->pemenuhan_modal_nasabah, 0, ',', '.') }}
                         </td>
                     </tr>
                     <tr>
@@ -283,7 +283,7 @@
                             Outstanding pembiayaan
                         </th>
                         <td>
-                            {{ number_format($result['collection']->outstanding_pembiayaan )}}
+                            {{ number_format($result['collection']->outstanding_pembiayaan , 0, ',', '.')}}
                         </td>
                     </tr>
                     <tr>
@@ -307,7 +307,15 @@
                             Proyeksi pendapatan (bulan pertama)
                         </th>
                         <td>
-                            {{ number_format($result['collection']->proyeksi_pendapatan) }}
+                            {{ number_format($result['collection']->proyeksi_pendapatan, 0, ',', '.') }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Proyeksi Kenaikan Pendapatan
+                        </th>
+                        <td>
+                            {{ $result['collection']->proyeksi_kenaikan_pendapatan }}%
                         </td>
                     </tr>
                     <tr>
@@ -328,6 +336,11 @@
                     </tr>
                     </tbody>
                 </table>
+                <div class="form-group">
+                    <a class="btn btn-outline-warning" href="{{ route('admin.perhitungan-akads.export',['detail'=>'musyarakah','code'=>$result['code']]) }}">
+                        Download PDF
+                    </a>
+                </div>
             </div>
         </div>
     </div>

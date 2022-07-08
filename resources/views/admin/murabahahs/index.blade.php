@@ -66,7 +66,7 @@
                                     {{ $murabahah['id'] ?? '' }}
                                 </td>
                                 <td>
-                                    {{ number_format($murabahah['collection']->harga_beli) ?? '' }}
+                                    {{ ($murabahah['collection']->harga_beli) ?? '' }}
                                 </td>
                                 <td>
                                     {{ $murabahah['collection']->presentase_dp ?? '' }}%
@@ -78,19 +78,19 @@
                                     {{ $murabahah['collection']->margin_keuntungan_bank ?? '' }}%
                                 </td>
                                 <td>
-                                    {{ number_format($murabahah['collection']->estimasi_pembiayaan_bank) ?? '' }}
+                                    {{ ($murabahah['collection']->estimasi_pembiayaan_bank) ?? '' }}
                                 </td>
                                 <td>
-                                    {{ number_format($murabahah['collection']->estimasi_pembiayaan_tahunan) ?? '' }}
+                                    {{ ($murabahah['collection']->estimasi_pembiayaan_tahunan) ?? '' }}
                                 </td>
                                 <td>
                                     {{ $murabahah['collection']->jangka_waktu ?? '' }}
                                 </td>
                                 <td>
-                                    {{ number_format($murabahah['collection']->biaya_bank) ?? '' }}
+                                    {{ ($murabahah['collection']->biaya_bank) ?? '' }}
                                 </td>
                                 <td>
-                                    {{ number_format($murabahah['collection']->biaya_notaris) ?? '' }}
+                                    {{ ($murabahah['collection']->biaya_notaris) ?? '' }}
                                 </td>
                                 <td>
                                     <a class="btn btn-xs btn-primary" href="{{ route('admin.perhitungan-akads.showDetail', ['detail'=>'murabahah','code'=>$murabahah['code']]) }}">
