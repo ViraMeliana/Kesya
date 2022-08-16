@@ -11,7 +11,7 @@ class CreateDasarHukumsTable extends Migration
         Schema::create('dasar_hukums', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama_hukum');
-            $table->string('slug');
+            $table->string('ringkasan');
             $table->timestamps();
             $table->softDeletes();
         });

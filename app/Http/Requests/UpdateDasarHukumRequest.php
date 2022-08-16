@@ -25,11 +25,12 @@ class UpdateDasarHukumRequest extends FormRequest
                 'string',
                 'required',
             ],
-            'file_hukum' => [
+            'ringkasan' => [
+                'string',
                 'required',
             ],
-            'slug' => [
-                'string',
+            'file_hukum' => [
+                'required',
             ],
         ];
     }

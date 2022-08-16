@@ -93,6 +93,8 @@ return [
             'kategori_dasar_hukum_helper' => ' ',
             'nama_hukum'                  => 'Nama Hukum',
             'nama_hukum_helper'           => ' ',
+            'ringkasan'                  => 'Ringkasan',
+            'ringkasan_helper'           => ' ',
             'file_hukum'                  => 'File Hukum',
             'file_hukum_helper'           => ' ',
             'created_at'                  => 'Created at',

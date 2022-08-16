@@ -67,16 +67,6 @@
                 </a>
             </li>
         @endcan
-        @can('dasar_hukum_access')
-            <li class="c-sidebar-nav-item">
-                <a href="{{ route("admin.dasar-hukums.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/dasar-hukums") || request()->is("admin/dasar-hukums/*") ? "c-active" : "" }}">
-                    <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
-
-                    </i>
-                    {{ trans('cruds.dasarHukum.title') }}
-                </a>
-            </li>
-        @endcan
         @can('kamus_istilah_access')
             <li class="c-sidebar-nav-item">
                 <a href="{{ route("admin.kamus-istilahs.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/kamus-istilahs") || request()->is("admin/kamus-istilahs/*") ? "c-active" : "" }}">

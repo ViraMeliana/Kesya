@@ -35,9 +35,6 @@
                             {{ trans('cruds.dasarHukum.fields.file_hukum') }}
                         </th>
                         <th>
-                            {{ trans('cruds.dasarHukum.fields.slug') }}
-                        </th>
-                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -63,9 +60,6 @@
                                         {{ trans('global.view_file') }}
                                     </a>
                                 @endif
-                            </td>
-                            <td>
-                                {{ $dasarHukum->slug ?? '' }}
                             </td>
                             <td>
                                 @can('dasar_hukum_show')

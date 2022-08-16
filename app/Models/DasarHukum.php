@@ -29,7 +29,7 @@ class DasarHukum extends Model implements HasMedia
     protected $fillable = [
         'kategori_dasar_hukum_id',
         'nama_hukum',
-        'slug',
+        'ringkasan',
         'created_at',
         'updated_at',
         'deleted_at',

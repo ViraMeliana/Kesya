@@ -34,6 +34,16 @@
                 <span class="help-block">{{ trans('cruds.dasarHukum.fields.nama_hukum_helper') }}</span>
             </div>
             <div class="form-group">
+                <label class="required" for="ringkasan">{{ trans('cruds.dasarHukum.fields.ringkasan') }}</label>
+                <textarea class="form-control {{ $errors->has('ringkasan') ? 'is-invalid' : '' }}" name="ringkasan" id="ringkasan" required>{{ old('ringkasan') }}</textarea>
+                @if($errors->has('ringkasan'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('ringkasan') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.dasarHukum.fields.ringkasan_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <label class="required" for="file_hukum">{{ trans('cruds.dasarHukum.fields.file_hukum') }}</label>
                 <div class="needsclick dropzone {{ $errors->has('file_hukum') ? 'is-invalid' : '' }}" id="file_hukum-dropzone">
                 </div>

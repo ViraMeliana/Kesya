@@ -41,6 +41,14 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.dasarHukum.fields.ringkasan') }}
+                        </th>
+                        <td>
+                            {{ $dasarHukum->ringkasan }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.dasarHukum.fields.file_hukum') }}
                         </th>
                         <td>
