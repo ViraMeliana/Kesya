@@ -66,7 +66,11 @@ class PerhitunganAkadController extends Controller
     public function showIndex($detail)
     {
         abort_if(Gate::denies('perhitungan_akad_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        $perhitungan = PerhitunganAkad::with('user')->where('property', $detail)->where('user_id',Auth::id())->get();
+        if (Auth::user()->getAuthIdentifier() == 1) {
+            $perhitungan = PerhitunganAkad::with('user')->where('property', $detail)->get();
+        } else {
+            $perhitungan = PerhitunganAkad::with('user')->where('property', $detail)->where('user_id',Auth::id())->get();
+        }
         $result = null;
         foreach ($perhitungan as $item) {
             $result[] = ['collection'=>json_decode($item['collection']),'code'=>$item['code'],'property'=>$item['property'],'id'=>$item['id']];
